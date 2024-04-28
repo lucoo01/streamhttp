@@ -1,0 +1,21 @@
+#打包deb
+pwd
+cd ../build/linux/x64/release
+rm -rf package
+mkdir -p package/DEBIAN
+echo "Package: StreamHTTP" >> package/DEBIAN/control
+echo "Version: 1.0.9" >> package/DEBIAN/control
+echo "Priority: optional" >> package/DEBIAN/control
+echo "Architecture: amd64" >> package/DEBIAN/control
+echo "Depends: ca-certificates" >> package/DEBIAN/control
+echo "Section: utils" >> package/DEBIAN/control
+echo "Maintainer: wangkelly@gmail.com" >> package/DEBIAN/control
+echo "Homepage: https://github.com/wanghongenpin/network_proxy_flutter" >> package/DEBIAN/control
+echo "Description: http/https Capture packets" >> package/DEBIAN/control
+echo "" >> package/DEBIAN/control
+mkdir -p package/usr/share/applications
+cp ../../../../linux/proxy-pin.desktop package/usr/share/applications
+mkdir package/opt
+cp -r bundle package/opt/proxypin
+
+dpkg -b package ProxyPin-Linux.deb

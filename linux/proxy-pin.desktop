@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=StreamHTTP
+GenericName=StreamHTTP
+Exec=/opt/httpproxy/StreamHTTP
+Icon=/opt/httpproxy/data/flutter_assets/assets/icon.png
+Terminal=false
+Type=Application
+Categories=Development;
